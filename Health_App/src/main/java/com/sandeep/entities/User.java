@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -21,12 +23,15 @@ public class User {
 	private Long id;
 
 	@Column(name = "username")
+	@JsonIgnore
 	private String username;
 
 	@Column(name = "password")
+	@JsonIgnore
 	private String password;
 
 	@Column(name = "role")
+	@JsonIgnore
 	private String role;
 
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
